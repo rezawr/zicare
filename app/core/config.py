@@ -10,7 +10,7 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 class Settings(BaseSettings):
     PROJECT_NAME = os.getenv('PROJECT_NAME', 'FASTAPI')
     SECRET_KEY = os.getenv('SECRET_KEY', '')
-    API_PREFIX = ''
+    API_PREFIX = '/api/v1'
     BACKEND_CORS_ORIGINS = ['*']
     DATABASE_URL = os.getenv('SQL_DATABASE_URL', '')
     ACCESS_TOKEN_EXPIRE_SECONDS: int = 60 * 60 * 24 * 7  # Token expired after 7 days

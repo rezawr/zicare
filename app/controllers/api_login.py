@@ -14,13 +14,13 @@ router = APIRouter()
 
 
 class LoginRequest(BaseModel):
-    username: EmailStr = 'user@example.com'
-    password: str = 'secret'
+    email: EmailStr
+    password: str
 
 
 @router.post('', response_model=DataResponse[Token])
 def login_access_token(form_data: LoginRequest):
-    user = UserService().authenticate(email=form_data.username, password=form_data.password)
+    user = UserService().authenticate(email=form_data.email, password=form_data.password)
     if not user:
         raise HTTPException(status_code=400, detail='Incorrect email or password')
     elif not user.is_active:

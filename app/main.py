@@ -38,8 +38,8 @@ def get_application() -> FastAPI:
         'email': 'admin@example.com',
         'password': 'secret',
         'role': "administrators"
-    }       
-    #DefaultUser.user(data)    
+    }
+    DefaultUser.user(data)
     return application
 
 

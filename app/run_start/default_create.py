@@ -16,8 +16,22 @@ class DefaultUser:
             is_active=data.get('is_active') if data.get('is_active') is not None else True,
             role=data.get('role') if data.get('role') is not None else UserRole.GUEST.value
         )
-        with db():
-            db.session.add(user)
-            db.session.commit()
-            db.session.refresh(user)
-        print ("insert first user")
+
+        """
+        | -------------------------------------------------------------------------------
+        | FastAPI doesnt have any custom command line, so I used to checking the admin
+        | user is there or not, if there admin user is exist it will be going to exception
+        | and the exception doesnt have any code to run, and the application could be run
+        | properly
+        | 
+        | *R
+        | -------------------------------------------------------------------------------
+        """
+        try:
+            with db():
+                db.session.add(user)
+                db.session.commit()
+                db.session.refresh(user)
+            print ("insert first user")
+        except Exception as e:
+            pass
