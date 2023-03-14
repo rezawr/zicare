@@ -1,5 +1,5 @@
 
-# Assestment by Jublia
+# Assestment by Zicare
 
 Reza Wahyu Ramadhan
 [![Built with FastAPI](https://img.shields.io/badge/built%20with-FastAPI-ff69b4.svg?logo=cookiecutter)](https://github.com/karec/cookiecutter-flask-restful)
